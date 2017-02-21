@@ -18,7 +18,7 @@ bot.on('ready',() => {
 bot.on('message',(message) => {
 	//If the channel name match the specified channel in the settings
 	//And if the author is not the bot himself
-	if(message.channel.name != settings.channel  || bot.user.id == message.author.id)
+	if(settings.onlyChannel && (message.channel.name != settings.channel  || bot.user.id == message.author.id))
 		return
 	//Abort if the mention is not present (only when the property is defined in the settings)
 	if(settings.onlyMention && !message.mentions.users.get(bot.user.id))
@@ -28,8 +28,10 @@ bot.on('message',(message) => {
 	var bestMatch = null
 	for (var i = 0; i<Object.keys(modules).length; i++) {
 		var module = modules[Object.keys(modules)[i]]
+		//Check if the module have grammar
 		if(!module.grammar)
 			continue
+		//Check all the grammar lines of the module
 		for(var y = 0; y<module.grammar.length; y++){
 			var matchingValue = natural.JaroWinklerDistance(message.contentWithoutMentions,module.grammar[y])
 			if(bestMatch == null || bestMatch.value < matchingValue){
@@ -38,7 +40,7 @@ bot.on('message',(message) => {
 		}
 	}
 	console.info(`${message.content} | ${bestMatch.grammarString} => ${bestMatch.module.name} / ${bestMatch.value}`)
-	//Abort if the value is under the minimum accuracy
+	//Abort if the value is under the minimum accuracy and send to the 'notfound' module
 	if(bestMatch.value < settings.minAccuracy){
 		if(modules.notfound){
 			console.info(" -> Using 'notfound' module")
@@ -62,6 +64,9 @@ for(var i = 0; i < modulesDirs.length; i++){
 		var moduleGrammar = fs.readFileSync(settings.modulesDir+"/"+moduleId+"/grammar.txt","utf8").split(/\r?\n/)
 		modules[moduleId].grammar = moduleGrammar
 	}
+	//Execute the init method of the module if it's exists
+	if(modules[moduleId].init)
+		modules[moduleId].init()
 }
 
 //Starting the bot client
