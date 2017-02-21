@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/EpicKiwi/discord-alfred/issues"
   },
-  "homepage": "https://github.com/EpicKiwi/discord-alfred#readme"
+  "homepage": "https://github.com/EpicKiwi/discord-alfred#readme",
+  "dependencies": {
+    "discord.js": "^11.0.0"
+  }
 }
