@@ -1,4 +1,7 @@
 module.exports = {
-	token: process.argv[2],
-	channel: "ask-alfred"
+	token: process.argv[2],	//The bot token registered, this token is given in argument
+	channel: "ask-alfred", //The channel where the message of the bot will be sent
+	modulesDir: "./modules", //The folder where the modules are located
+	minAccuracy: 0.8, //The minimum accuracy required to send to a module
+	onlyMention: true, //Accept only messages with explicit mention to the bot
 }

@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/EpicKiwi/discord-alfred#readme",
   "dependencies": {
-    "discord.js": "^11.0.0"
+    "discord.js": "^11.0.0",
+    "natural": "^0.5.0"
   }
 }
