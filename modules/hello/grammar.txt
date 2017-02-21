@@ -2,5 +2,5 @@ Salut
 Hello
 Hey
 Bonjour
-Hey salut !
+Hey salut
 Hi
