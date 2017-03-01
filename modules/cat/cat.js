@@ -3,7 +3,7 @@ const request = require("request")
 exports.name = "Cat"
 
 exports.regexes = [
-	/chats?/
+	/chats?/i
 ]
 
 exports.onMessage = (message) => {
