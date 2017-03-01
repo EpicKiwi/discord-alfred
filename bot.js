@@ -34,7 +34,7 @@ bot.on('message',(message) => {
 			for(var y = 0; y<module.grammar.length; y++){
 				var matchingValue = natural.JaroWinklerDistance(message.contentWithoutMentions,module.grammar[y])
 				if(bestMatch == null || bestMatch.value < matchingValue){
-					bestMatch = {module,value:matchingValue,grammarString:module.grammar[y]}
+					bestMatch = {module,evaluated:message.contentWithoutMentions,value:matchingValue,grammarString:module.grammar[y]}
 				}
 			}
 		}
@@ -44,7 +44,7 @@ bot.on('message',(message) => {
 			for(var y = 0; y<module.regexes.length; y++){
 				var regResult = module.regexes[y].exec(message.contentWithoutMentions)
 				if(regResult){
-					bestMatch = {module,value:1,regex:module.regexes,regexResult:regResult}
+					bestMatch = {module,evaluated:message.contentWithoutMentions,value:1,regex:module.regexes,regexResult:regResult}
 				}
 			}
 		}
@@ -79,7 +79,6 @@ for(var i = 0; i < modulesDirs.length; i++){
 		var moduleGrammar = fs.readFileSync(settings.modulesDir+"/"+moduleId+"/grammar.txt","utf8").split(/\r?\n/)
 		modules[moduleId].grammar = moduleGrammar
 	} catch (e){
-		console.log("No grammar for module "+moduleId)
 	}
 	//Execute the init method of the module if it's exists
 	if(modules[moduleId].init)

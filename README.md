@@ -66,3 +66,4 @@ l'objet de matching comprends les clés suivantes :
 * `grammarString` : *dans le cas d'un matching par grammaire* contiens la chaine de carractère d'exemple ressemblant le plus au message
 * `regex` : *dans le cas d'un matching par regex* contiens la regex utilisée pour matcher le message
 * `regexResult` : *dans le cas d'un matching par regex* contiens un tableau comprenant la chaine de carractères matchée puis chacune des prenthèses capturantes; on tulise ici la méthode [exec](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)
+* `evaluated` : La chaine de carractère analysée pour matcher
