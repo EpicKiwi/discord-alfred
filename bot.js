@@ -29,17 +29,30 @@ bot.on('message',(message) => {
 	for (var i = 0; i<Object.keys(modules).length; i++) {
 		var module = modules[Object.keys(modules)[i]]
 		//Check if the module have grammar
-		if(!module.grammar)
-			continue
-		//Check all the grammar lines of the module
-		for(var y = 0; y<module.grammar.length; y++){
-			var matchingValue = natural.JaroWinklerDistance(message.contentWithoutMentions,module.grammar[y])
-			if(bestMatch == null || bestMatch.value < matchingValue){
-				bestMatch = {module,value:matchingValue,grammarString:module.grammar[y]}
+		if(module.grammar){
+			//Check all the grammar lines of the module
+			for(var y = 0; y<module.grammar.length; y++){
+				var matchingValue = natural.JaroWinklerDistance(message.contentWithoutMentions,module.grammar[y])
+				if(bestMatch == null || bestMatch.value < matchingValue){
+					bestMatch = {module,value:matchingValue,grammarString:module.grammar[y]}
+				}
+			}
+		}
+
+		if(module.regexes){
+			//Check all the regex lines of the module
+			for(var y = 0; y<module.regexes.length; y++){
+				var regResult = module.regexes[y].exec(message.contentWithoutMentions)
+				if(regResult){
+					bestMatch = {module,value:1,regex:module.regexes,regexResult:regResult}
+				}
 			}
 		}
 	}
-	console.info(`${message.content} | ${bestMatch.grammarString} => ${bestMatch.module.name} / ${bestMatch.value}`)
+	if(bestMatch.grammarString)
+		console.info(`${message.content} | ${bestMatch.grammarString} / ${bestMatch.value}`)
+	else
+		console.info(`${message.content} | ${bestMatch.regex} / ${JSON.stringify(bestMatch.regexResult)}`)
 	//Abort if the value is under the minimum accuracy and send to the 'notfound' module
 	if(bestMatch.value < settings.minAccuracy){
 		if(modules.notfound){
@@ -50,7 +63,7 @@ bot.on('message',(message) => {
 		}
 		return
 	}
-	bestMatch.module.onMessage(message)
+	bestMatch.module.onMessage(message,bestMatch,bot)
 })
 
 //Read the content of the modules folder
@@ -59,10 +72,14 @@ for(var i = 0; i < modulesDirs.length; i++){
 	var moduleId = modulesDirs[i]
 	console.info("Loading module "+moduleId)
 	modules[moduleId] = require(settings.modulesDir+"/"+moduleId+"/"+moduleId)
-	if(moduleId != "notfound"){
+	try{
+		//Check if the grammar file is present
+		fs.accessSync(settings.modulesDir+"/"+moduleId+"/grammar.txt")
 		//Load the grammar.txt file and split each line
 		var moduleGrammar = fs.readFileSync(settings.modulesDir+"/"+moduleId+"/grammar.txt","utf8").split(/\r?\n/)
 		modules[moduleId].grammar = moduleGrammar
+	} catch (e){
+		console.log("No grammar for module "+moduleId)
 	}
 	//Execute the init method of the module if it's exists
 	if(modules[moduleId].init)
