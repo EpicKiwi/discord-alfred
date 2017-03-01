@@ -66,6 +66,12 @@ bot.on('message',(message) => {
 	bestMatch.module.onMessage(message,bestMatch,bot)
 })
 
+bot.on('messageReactionAdd',(messageReaction,user) => {
+	console.log(messageReaction.emoji.name)
+	if(messageReaction.emoji.name == "👎")
+		console.log("thumb down")
+})
+
 //Read the content of the modules folder
 var modulesDirs = fs.readdirSync(settings.modulesDir)
 for(var i = 0; i < modulesDirs.length; i++){
