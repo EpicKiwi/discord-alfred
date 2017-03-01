@@ -24,6 +24,6 @@ module.exports = class Joke {
 	}
 
 	toJSON(){
-		return JSON.stringify({text:this.text,author:this.author})
+		return {text:this.text,author:this.author}
 	}
 }
