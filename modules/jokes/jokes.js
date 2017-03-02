@@ -4,7 +4,7 @@ const Joke = require("./Joke")
 var usersJokesFile = __dirname+"/users-jokes.json"
 var alfredJokesFile = __dirname+"/alfred-jokes.json"
 
-exports.name = "Blagues"
+exports.name = "😅 Blagues"
 
 var addRegex = /(?:ajoute|apprend?) cette blague ?: ?((?:[\n\r]|.)+)/im
 

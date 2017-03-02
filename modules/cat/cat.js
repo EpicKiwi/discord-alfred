@@ -1,6 +1,6 @@
 const request = require("request")
 
-exports.name = "Chats"
+exports.name = "😼 Chats"
 
 exports.regexes = [
 	/(montre|affiche|show|donne).+(chat|cat)s?/i

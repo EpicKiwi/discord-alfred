@@ -1,4 +1,4 @@
-exports.name = "Aide"
+exports.name = "🚩 Aide"
 
 exports.regexes = [
 	/que puis[- ]je dire/i,
@@ -15,14 +15,14 @@ exports.onMessage = (message,matching,bot,modules) => {
 	for(var i in modules){
 		var mod = modules[i]
 		if(mod.help){
-			help += `\n\n${mod.name} :`
+			help += `\n\n**${mod.name}**\n`
 			for(var y in mod.help){
 				if(mod.help[y].description)
-					help += `\n\t${mod.help[y].example}\n\t - ${mod.help[y].description}`
+					help += `\n\t\t${mod.help[y].example}\n\t\t\t *${mod.help[y].description}*`
 				else
-					help += `\n\t${mod.help[y].example}`
+					help += `\n\t\t${mod.help[y].example}`
 			}
 		}
 	}
-	message.channel.sendMessage(`${message.author} Voici ce sur quoi je peut vous aider :\n\`\`\`${help}\n\`\`\``)
+	message.channel.sendMessage(`${message.author} Voici ce sur quoi je peut vous aider :${help}\n`)
 }

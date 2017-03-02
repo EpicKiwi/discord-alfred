@@ -1,6 +1,8 @@
 const http = require('http')
 const request = require('request')
 
+exports.name = "🔮 Wikipedia"
+
 var regexes = [
 	/Qu[' ]est[- ]ce qu(?:e|') ?(?:la|le|les|une?|l')? ?(.+)(?: \?)?/i,
 	/Qui est (.+)(?: \?)?/i
