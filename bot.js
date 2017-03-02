@@ -35,7 +35,7 @@ bot.on('message',(message) => {
 			for(var y = 0; y<module.grammar.length; y++){
 				var matchingValue = natural.JaroWinklerDistance(message.contentWithoutMentions,module.grammar[y])
 				if(bestMatch == null || bestMatch.value < matchingValue){
-					bestMatch = {module,evaluated:message.contentWithoutMentions,value:matchingValue,grammarString:module.grammar[y]}
+					bestMatch = {module,method:matchingData.MatchingMethod.GRAMMAR,evaluated:message.contentWithoutMentions,value:matchingValue,grammarString:module.grammar[y]}
 				}
 			}
 		}
@@ -45,7 +45,7 @@ bot.on('message',(message) => {
 			for(var y = 0; y<module.regexes.length; y++){
 				var regResult = module.regexes[y].exec(message.contentWithoutMentions)
 				if(regResult){
-					bestMatch = {module,evaluated:message.contentWithoutMentions,value:1,regex:module.regexes,regexResult:regResult}
+					bestMatch = {module,method:matchingData.MatchingMethod.REGEX,evaluated:message.contentWithoutMentions,value:1,regex:module.regexes,regexResult:regResult}
 				}
 			}
 		}
@@ -58,8 +58,8 @@ bot.on('message',(message) => {
 	if(bestMatch.value < settings.minAccuracy){
 		if(modules.notfound){
 			console.info(" -> Using 'notfound' module")
-			matching.method = matchingData.MatchingMethod.UNKNOWN
-			modules.notfound.onMessage(message,matching)
+			notFoundMatch = {module:modules.notfound,method:matchingData.MatchingMethod.UNKNOWN,evaluated:message.contentWithoutMentions,value:0}
+			modules.notfound.onMessage(message,notFoundMatch)
 		} else {
 			console.warn(" -> No 'notfound' module tu reply this message")
 		}

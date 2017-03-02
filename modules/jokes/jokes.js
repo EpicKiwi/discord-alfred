@@ -6,7 +6,7 @@ var alfredJokesFile = __dirname+"/alfred-jokes.json"
 
 exports.name = "Blagues"
 
-var addRegex = /(?:ajoute|apprends?) cette blague ?: ?(.+)/i
+var addRegex = /(?:ajoute|apprends?) cette blague ?: ?((?:[\n\r]|.)+)/im
 
 var regexes = [
 	addRegex,
@@ -45,8 +45,9 @@ exports.init = () => {
 exports.onMessage = (message,matching) => {
 	if(matching.evaluated.match(addRegex)){
 		jokes.push(new Joke(matching.regexResult[1],message.author.username))
-		saveUsersJokes()
 		message.channel.send("Merci "+message.author+", je l'ai ajoutée à mon repertoire :)")
+		saveUsersJokes()
+		console.log(matching)
 	} else {
 		var joke = jokes[Math.round(Math.random()*(jokes.length-1))]
 		message.channel.send(message.author+" "+joke)
@@ -60,7 +61,13 @@ function saveUsersJokes(){
 			toSaveJokes.push(jokes[jokeIndex])
 		}
 	}
-	fs.writeFileSync(usersJokesFile,JSON.stringify(toSaveJokes))
+	fs.writeFile(usersJokesFile,JSON.stringify(toSaveJokes),(err) => {
+		if(err){
+			console.error(err)
+			return
+		}
+		console.info("Jokes saved")
+	})
 }
 
 //TODO supprimer les blagues du répertoire si elles reçoivent trop de mauvaises notes
