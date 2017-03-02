@@ -59,13 +59,13 @@ bot.on('message',(message) => {
 		if(modules.notfound){
 			console.info(" -> Using 'notfound' module")
 			notFoundMatch = {module:modules.notfound,method:matchingData.MatchingMethod.UNKNOWN,evaluated:message.contentWithoutMentions,value:0}
-			modules.notfound.onMessage(message,notFoundMatch)
+			modules.notfound.onMessage(message,notFoundMatch,bot,modules)
 		} else {
 			console.warn(" -> No 'notfound' module tu reply this message")
 		}
 		return
 	}
-	bestMatch.module.onMessage(message,bestMatch,bot)
+	bestMatch.module.onMessage(message,bestMatch,bot,modules)
 })
 
 bot.on('messageReactionAdd',(messageReaction,user) => {

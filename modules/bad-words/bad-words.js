@@ -20,4 +20,4 @@ var badWords = [
 
 const RandomStringModule = require("../../base-modules/RandomStringModule")
 
-module.exports = new RandomStringModule("Bad words",badWords,responses)
+module.exports = new RandomStringModule("Insultes",badWords,responses)

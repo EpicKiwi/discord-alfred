@@ -8,6 +8,11 @@ var regexes = [
 
 exports.regexes = regexes
 
+exports.help = [
+	{example: "Qui est Barrack Obama ?"},
+	{example: "Qu'est ce qu'un tabouret ?", description: "Je cherche la signification sur wikipedia"},
+]
+
 //Repris et adapté du projet Alfred
 exports.onMessage = function(message,matching){
 	message.channel.sendMessage(message.author+" Je cherche sur Wikipedia...")

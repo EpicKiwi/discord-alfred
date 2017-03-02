@@ -6,7 +6,7 @@ var alfredJokesFile = __dirname+"/alfred-jokes.json"
 
 exports.name = "Blagues"
 
-var addRegex = /(?:ajoute|apprends?) cette blague ?: ?((?:[\n\r]|.)+)/im
+var addRegex = /(?:ajoute|apprend?) cette blague ?: ?((?:[\n\r]|.)+)/im
 
 var regexes = [
 	addRegex,
@@ -19,6 +19,12 @@ var regexes = [
 exports.regexes = regexes
 
 var jokes = []
+
+exports.help = [
+	{example: "Raconte moi une blague"},
+	{example: "Connais-tu une blague ?", description: "Je vous raconte une blague"},
+	{example: "Apprend cette blague : [votre blague]", description: "J'ajouterais la blague à mon repertoire"},
+]
 
 exports.init = () => {
 	//Loading default jokes
@@ -46,7 +52,6 @@ exports.onMessage = (message,matching) => {
 	if(matching.evaluated.match(addRegex)){
 		jokes.push(new Joke(matching.regexResult[1],message.author.username))
 		message.channel.send("Merci "+message.author+", je l'ai ajoutée à mon repertoire :)")
-		saveUsersJokes()
 	} else {
 		var joke = jokes[Math.round(Math.random()*(jokes.length-1))]
 		message.channel.send(message.author+" "+joke)

@@ -50,7 +50,7 @@ Ces phrases seront comparés avec les messages des utilisateurs en suivant l'alg
 Le script est un module NodeJs standard. Ce module doit au moins contenir 2 éléments principaux.
 
 * `name` : Une *chaine de carractères* représentant le nom du module différement de l'identifiant
-* `onMessage` : Un *fonction* appelée lors du matching avec la grammaire du module, elle prends en paramètre un objet [Message](https://discord.js.org/#/docs/main/stable/class/Message) provenent de la librairie [Discord.js](https://discord.js.org), un objet `match` définis un objet de matching définit plus bas, et enfin l'objet `bot` représentant le [client discord.js](https://discord.js.org/#/docs/main/stable/class/Client)
+* `onMessage` : Un *fonction* appelée lors du matching avec la grammaire du module, elle prends en paramètre un objet [Message](https://discord.js.org/#/docs/main/stable/class/Message) provenent de la librairie [Discord.js](https://discord.js.org), un objet `match` définis un objet de matching définit plus bas, l'objet `bot` représentant le [client discord.js](https://discord.js.org/#/docs/main/stable/class/Client), et enfin `modules` comprenant l'ensemble des modules existants
 
 On peut aussi y ajouter un élément en plus pour en etendre les fonctionnalités.
 
@@ -67,3 +67,4 @@ l'objet de matching comprends les clés suivantes :
 * `regex` : *dans le cas d'un matching par regex* contiens la regex utilisée pour matcher le message
 * `regexResult` : *dans le cas d'un matching par regex* contiens un tableau comprenant la chaine de carractères matchée puis chacune des prenthèses capturantes; on tulise ici la méthode [exec](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)
 * `evaluated` : La chaine de carractère analysée pour matcher
+* `method` : La méthode utilisée pour conclure au match faisant partie de l'enumaration `matchingdata.MatchingMethod`
