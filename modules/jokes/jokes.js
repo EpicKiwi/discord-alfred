@@ -51,6 +51,7 @@ exports.init = () => {
 exports.onMessage = (message,matching) => {
 	if(matching.evaluated.match(addRegex)){
 		jokes.push(new Joke(matching.regexResult[1],message.author.username))
+		saveUsersJokes()
 		message.channel.send("Merci "+message.author+", je l'ai ajoutée à mon repertoire :)")
 	} else {
 		var joke = jokes[Math.round(Math.random()*(jokes.length-1))]
