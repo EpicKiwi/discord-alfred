@@ -2,6 +2,7 @@ const discord = require("discord.js")
 const fs = require("fs")
 const natural = require("natural")
 const settings = require("./settings")
+const matchingData = require("./matchingdata")
 
 //The bot used to communicate with discord
 const bot = new discord.Client();
@@ -40,17 +41,19 @@ bot.on('message',(message) => {
 		}
 	}
 	console.info(`${message.content} | ${bestMatch.grammarString} => ${bestMatch.module.name} / ${bestMatch.value}`)
+	matching = new matchingData.MatchingData(message.contentWithoutMentions,matchingData.MatchingMethod.GRAMMAR)
 	//Abort if the value is under the minimum accuracy and send to the 'notfound' module
 	if(bestMatch.value < settings.minAccuracy){
 		if(modules.notfound){
 			console.info(" -> Using 'notfound' module")
-			modules.notfound.onMessage(message)
+			matching.method = matchingData.MatchingMethod.UNKNOWN
+			modules.notfound.onMessage(message,matching)
 		} else {
 			console.warn(" -> No 'notfound' module tu reply this message")
 		}
 		return
 	}
-	bestMatch.module.onMessage(message)
+	bestMatch.module.onMessage(message,matching)
 })
 
 //Read the content of the modules folder
