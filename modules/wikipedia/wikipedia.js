@@ -4,8 +4,8 @@ const request = require('request')
 exports.name = "🔮 Wikipedia"
 
 var regexes = [
-	/Qu[' ]est[- ]ce qu(?:e|') ?(?:la|le|les|une?|l')? ?(.+)(?: \?)?/i,
-	/Qui est (.+)(?: \?)?/i
+	/Qu[' ]est[- ]ce qu(?:e|') ?(?:la|le|les|une?|l')? ?([^?]+)(?: ?\?)?/i,
+	/Qui est ([^?]+)(?: ?\?)?/i
 ]
 
 exports.regexes = regexes
@@ -28,10 +28,10 @@ exports.onMessage = function(message,matching){
 				} else if(result[2][0] != "") {
 					message.channel.sendMessage(message.author+" "+result[2][0])
 				} else {
-					message.channel.sendMessage(message.author+" Je ne trouve rien à propos de "+matching.regexResult[1]+". Essayez https://duckduckgo.com/?q="+matching.regexResult[1])
+					message.channel.sendMessage(message.author+" Je ne trouve rien à propos de "+matching.regexResult[1]+". Essayez https://duckduckgo.com/?q="+matching.regexResult[1].replace(/ /g,"+"))
 				}
 			} else {
-				message.channel.sendMessage(message.author+" Je ne trouve rien à propos de "+matching.regexResult[1]+". Essayez https://duckduckgo.com/?q="+matching.regexResult[1])
+				message.channel.sendMessage(message.author+" Je ne trouve rien à propos de "+matching.regexResult[1]+". Essayez https://duckduckgo.com/?q="+matching.regexResult[1].replace(/ /g,"+"))
 			}
 		} catch(e) {
 			console.error(e)
