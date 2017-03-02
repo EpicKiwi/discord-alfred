@@ -28,10 +28,10 @@ exports.onMessage = function(message,matching){
 				} else if(result[2][0] != "") {
 					message.channel.sendMessage(message.author+" "+result[2][0])
 				} else {
-					message.channel.sendMessage(message.author+" Je ne trouve rien à propos de "+matching.regexResult[1])
+					message.channel.sendMessage(message.author+" Je ne trouve rien à propos de "+matching.regexResult[1]+". Essayez https://duckduckgo.com/?q="+matching.regexResult[1])
 				}
 			} else {
-				message.channel.sendMessage(message.author+" Je ne trouve rien à propos de "+matching.regexResult[1])
+				message.channel.sendMessage(message.author+" Je ne trouve rien à propos de "+matching.regexResult[1]+". Essayez https://duckduckgo.com/?q="+matching.regexResult[1])
 			}
 		} catch(e) {
 			console.error(e)
