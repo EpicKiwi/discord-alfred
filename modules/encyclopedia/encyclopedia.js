@@ -12,7 +12,7 @@ exports.regexes = regexes
 
 exports.help = [
 	{example: "Qui est Barrack Obama ?"},
-	{example: "Qu'est ce qu'un tabouret ?", description: "Je cherche la signification sur wikipedia"},
+	{example: "Qu'est ce qu'un tabouret ?", description: "Je cherche la signification sur wikipedia et d'autres sites"},
 ]
 
 //Repris et adapté du projet Alfred
@@ -56,7 +56,8 @@ function searchOnWikipedia(matching,callback) {
 }
 
 var trustedLiks = [
-	/[^.]+\.wikia\.com/i
+	/[^.]+\.wikia\.com/i,
+	/imdb\.com/i
 ]
 
 function searchOnDuckduckgo(matching,callback){
