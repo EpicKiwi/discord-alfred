@@ -70,3 +70,4 @@ l'objet de matching comprends les clés suivantes :
 * `regexResult` : *dans le cas d'un matching par regex* contiens un tableau comprenant la chaine de carractères matchée puis chacune des prenthèses capturantes; on tulise ici la méthode [exec](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/exec)
 * `evaluated` : La chaine de carractère analysée pour matcher
 * `method` : La méthode utilisée pour conclure au match faisant partie de l'enumaration `matchingdata.MatchingMethod`
+* `reply` : Une fonction permettant de répondre au message envoyé par l'utilisateur. Cette fonction doit être utilisée dans la majeur partie des cas au lieu d'envoyer un message directement. Cette fonction prends en paramètre uniquement le message a envoyer et 'occupe d'ajouter une mention si besoin est.

@@ -24,9 +24,9 @@ exports.onMessage = function(message,matching){
 		else{
 			searchOnDuckduckgo(matching,result => {
 				if(result)
-					message.channel.sendMessage(message.author+" "+result)
+					matching.reply(result)
 				else
-					message.channel.sendMessage(message.author+" Je n'ai rien trouvé d'interessant à propos de "+matching.regexResult[1]+". Essayez https://duckduckgo.com/?q="+matching.regexResult[1].replace(/ /g,"+"))
+					matching.reply(" Je n'ai rien trouvé d'interessant à propos de "+matching.regexResult[1]+". Essayez https://duckduckgo.com/?q="+matching.regexResult[1].replace(/ /g,"+"))
 			})
 		}
 	})

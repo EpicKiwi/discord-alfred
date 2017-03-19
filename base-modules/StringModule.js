@@ -5,8 +5,8 @@ module.exports = class StringModule{
 		this.string = string
 	}
 
-	onMessage(message){
-		message.channel.send(this.string)	
+	onMessage(message,matching){
+		matching.reply(this.string)	
 	}
 
 }

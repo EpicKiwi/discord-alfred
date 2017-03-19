@@ -8,9 +8,9 @@ const messages = [
 	"Je suis confu, je ne sait pas quoi répondre",
 ]
 
-exports.onMessage = (message) => {
+exports.onMessage = (message,matching) => {
 	messageNumber = Math.round(Math.random()*(messages.length-1))
 	randomMessage = messages[messageNumber]
 	console.log("Not found message n°"+messageNumber+" : "+randomMessage)
-	message.channel.sendMessage(message.author+", "+randomMessage)
+	matching.reply(message.author+", "+randomMessage)
 }

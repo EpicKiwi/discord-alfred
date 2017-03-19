@@ -24,5 +24,5 @@ exports.onMessage = (message,matching,bot,modules) => {
 			}
 		}
 	}
-	message.channel.sendMessage(`${message.author} Voici ce sur quoi je peut vous aider :${help}\n`)
+	matching.reply(`Voici ce sur quoi je peut vous aider :${help}\n`)
 }

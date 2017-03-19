@@ -67,6 +67,12 @@ bot.on('message',(message) => {
 		}
 		return
 	}
+	bestMatch.reply = (replyMessage) => {
+		if(message.channel.type == 'text' && replyMessage.search(message.author.toString()) == -1){
+			replyMessage = `${message.author}, ${replyMessage}`
+		}
+		message.channel.sendMessage(replyMessage)
+	}
 	bestMatch.module.onMessage(message,bestMatch,bot,modules)
 })
 

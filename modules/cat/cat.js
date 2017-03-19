@@ -14,13 +14,13 @@ exports.help = [
 	{example: "Montre moi un chat", description: "Je vous envoie une image de chat"},
 ]
 
-exports.onMessage = (message) => {
+exports.onMessage = (message,matching) => {
 	request("http://random.cat/meow",(err,response,body) => {
 		if(err){
-			message.channel.sendMessage(message.author+" Je n'ai pas pu récupèrer l'image de chat :'(")
+			matching.reply(" Je n'ai pas pu récupèrer l'image de chat :'(")
 			return
 		}
 		var body = JSON.parse(response.body)
-		message.channel.sendMessage(message.author+" "+body.file)
+		matching.reply(body.file)
 	});
 }

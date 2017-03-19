@@ -5,9 +5,9 @@ module.exports = class RandomStringModule{
 		this.strings = strings
 	}
 
-	onMessage(message){
+	onMessage(message,matching){
 		var str = this.strings[Math.round(Math.random()*(this.strings.length-1))]
-		message.channel.send(message.author+" "+str)	
+		matching.reply(str)	
 	}
 
 }
