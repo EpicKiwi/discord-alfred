@@ -1,0 +1,2 @@
+D:\Users\ADRIEN KEGLER\Source\Repos\discord-alfred\obj\Debug\Discord-Alfred.njsprojResolveAssemblyReference.cache
+D:\Users\ADRIEN KEGLER\Source\Repos\discord-alfred\bin\Microsoft.NodejsTools.WebRole.dll
