@@ -1,9 +1,10 @@
 ﻿const request = require("request")
+const math = require("mathjs")
 
-exports.name = "➕, ➖, ➗, Calculator"
+exports.name = ":Pedobear: Calculator"
 
 exports.regexes = [
-    /combien font :/i
+    /combien font/i
 ]
 
 exports.help = [
@@ -11,14 +12,19 @@ exports.help = [
 ]
 
 exports.onMessage = (message, matching) => {
-    //Remove Alfred Mention
-    var calcul = String(message).replace(/<.*>/, "");
-    //Remove "?"
-    var calcul = calcul.replace(/\?/, "");
-    //Remove Trigger
-    var calcul = calcul.replace(/combien font :/i, "");
-    //Consider remaining text as calculation
-    var body = eval(calcul);
-    //Prompt Result mentionning the request's author
-    message.channel.sendMessage(message.author + ", cela fait exactement " + body)
+
+        //Remove Alfred Mention
+        var calcul = String(message).replace(/<.*>/, "");
+        //Remove "?"
+        var calcul = calcul.replace(/\?/, "");
+        //Remove ":"
+        var calcul = calcul.replace(/:/, "");
+        //Remove Trigger
+        var calcul = calcul.replace(/combien font/i, "");
+        //Replace sqrt by Math.sqrt
+        var calcul = calcul.replace(/sqrt/i, "Math.sqrt");
+        //Consider remaining text as calculation
+        var body = math.eval(calcul);
+        //Prompt Result mentionning the request's author
+        message.channel.sendMessage(message.author + ", cela fait exactement " + body)
 }

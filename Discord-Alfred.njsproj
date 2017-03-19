@@ -58,9 +58,11 @@
     <Folder Include="modules\notfound" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
+    <Folder Include="typings\globals\mathjs\" />
     <Folder Include="typings\globals\node\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="typings\globals\mathjs\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
     <TypeScriptCompile Include="typings\index.d.ts" />
   </ItemGroup>
