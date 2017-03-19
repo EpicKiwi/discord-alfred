@@ -41,6 +41,8 @@ hello
 
 ### Grammaire
 
+> Cette fonctionalité est dépréciée et sera suppromée dans une prochaine version, veuillez **NE PAS** l'utiliser
+
 Le fichier de grammaire *facultatif* possède les chaine de carractères permettant de matcher avec le message demandé. On écris alors le maximum de phrases d'exemples pouvant matcher avec les messages des utilisateurs.
 
 Ces phrases seront comparés avec les messages des utilisateurs en suivant l'algorithme de [Jaro-winkler](https://github.com/NaturalNode/natural#string-distance). Si le matching dépasse la valeur de **minAccuracy**, la fonction `onMessage` du script sera appelée.
