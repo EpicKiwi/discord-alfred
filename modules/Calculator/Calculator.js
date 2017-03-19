@@ -13,6 +13,8 @@ exports.help = [
 exports.onMessage = (message, matching) => {
     //Remove Alfred Mention
     var calcul = String(message).replace(/<.*>/, "");
+    //Remove "?"
+    var calcul = calcul.replace(/\?/, "");
     //Remove Trigger
     var calcul = calcul.replace(/combien font :/i, "");
     //Consider remaining text as calculation
