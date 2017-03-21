@@ -21,10 +21,10 @@ bot.on('message',(message) => {
 	if(bot.user.id == message.author.id)
 		return
 	//If the channel name match the specified channel in the settings or a private channel
-	if(!message.channel.type == 'dm' && settings.onlyChannel && message.channel.name != settings.channel)
+	if(message.channel.type != 'dm' && settings.onlyChannel && message.channel.name != settings.channel)
 		return
 	//Abort if the mention is not present (only when the property is defined in the settings)
-	if(!message.channel.type == 'dm' && settings.onlyMention && !message.mentions.users.get(bot.user.id))
+	if(message.channel.type != 'dm' && settings.onlyMention && !message.mentions.users.get(bot.user.id))
 		return
 	message.contentWithoutMentions = message.content.replace(/<@.+>/g, '');
 	//Test each module grammar for the current message
