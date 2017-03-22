@@ -55,7 +55,7 @@ exports.onMessage = (message,matching) => {
 		matching.reply("Merci "+message.author+", je l'ai ajoutée à mon repertoire :)")
 	} else {
 		var joke = jokes[Math.round(Math.random()*(jokes.length-1))]
-		matching.reply(joke)
+		matching.reply(joke.toString())
 	}
 }
 

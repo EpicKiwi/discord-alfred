@@ -52,6 +52,12 @@ bot.on('message',(message) => {
 			}
 		}
 	}
+	bestMatch.reply = (replyMessage) => {
+		if(message.channel.type == 'text' && replyMessage.search(message.author.toString()) == -1){
+			replyMessage = `${message.author}, ${replyMessage}`
+		}
+		message.channel.sendMessage(replyMessage)
+	}
 	if(bestMatch.grammarString)
 		console.info(`${message.content} | ${bestMatch.grammarString} / ${bestMatch.value}`)
 	else
@@ -60,18 +66,12 @@ bot.on('message',(message) => {
 	if(bestMatch.value < settings.minAccuracy){
 		if(modules.notfound){
 			console.info(" -> Using 'notfound' module")
-			notFoundMatch = {module:modules.notfound,method:matchingData.MatchingMethod.UNKNOWN,evaluated:message.contentWithoutMentions,value:0}
+			notFoundMatch = {module:modules.notfound,method:matchingData.MatchingMethod.UNKNOWN,evaluated:message.contentWithoutMentions,value:0,reply:bestMatch.reply}
 			modules.notfound.onMessage(message,notFoundMatch,bot,modules)
 		} else {
 			console.warn(" -> No 'notfound' module tu reply this message")
 		}
 		return
-	}
-	bestMatch.reply = (replyMessage) => {
-		if(message.channel.type == 'text' && replyMessage.search(message.author.toString()) == -1){
-			replyMessage = `${message.author}, ${replyMessage}`
-		}
-		message.channel.sendMessage(replyMessage)
 	}
 	bestMatch.module.onMessage(message,bestMatch,bot,modules)
 })
