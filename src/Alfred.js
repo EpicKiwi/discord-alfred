@@ -31,7 +31,7 @@ module.exports = class Alfred{
 		//Annule le massage en réponse a alfred lui-meme
 		if(message.author.id == this.client.user.id)
 			return
-		if(settings.onlyMention && !message.mentions.users.get(this.client.user.id))
+		if(settings.onlyMention && message.channel.type == 'text' && !message.mentions.users.get(this.client.user.id))
 			return
 		//Annule le message depuis un autre channel text que celui qui est défini
 		if(settings.onlyChannel && message.channel.type == 'text' && message.channel.name != settings.channel)
@@ -39,6 +39,7 @@ module.exports = class Alfred{
 		//Annule tout message en provenance d'un autre channel qu'un type dm ou text
 		if(message.channel.type != 'text' && message.channel.type != 'dm')
 			return
+		console.log(`${message.author.username} : ${message.content}`)
 		//Formate le message pour l'analyse
 		let matchMessage = message.content.replace(this.client.user.toString(),"").trim()
 		//Crée un objet de matching avec le message
