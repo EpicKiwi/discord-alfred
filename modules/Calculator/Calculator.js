@@ -25,7 +25,7 @@ exports.onMessage = (message, matching) => {
     }
 
     catch (err) {
-        message.channel.sendMessage("Désolé " + message.author + ", ton équation n'est pas valide.");
+        message.channel.sendMessage("Désolé " + message.author + ", votre équation n'est pas valide.");
     }
 
 }
