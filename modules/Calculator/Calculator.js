@@ -1,10 +1,14 @@
 ﻿const request = require("request")
 const math = require("mathjs")
 
-exports.name = ":heavy_plus_sign: Calculator"
+exports.name = "➕ Calculator"
 
 exports.regexes = [
-    /Combien font :?(.*)/i
+    /combien font\s?\:?(.*)?\??/ig,
+
+    /resoud ?:? ?(.+)(?: ?\?)?/gi,
+    /calcule ?:? ?(.+)(?: ?\?)?/gi,
+    /[çc]a fait combien ?:? ?(.+)(?: ?\?)?/gi
 ]
 
 exports.help = [
@@ -13,10 +17,16 @@ exports.help = [
 
 exports.onMessage = (message, matching) => {
 
-    console.log(matching);
-    //Consider remaining text as calculation
-    var body = math.eval(matching.regexResult[1]);
-    //Prompt Result mentionning the request's author
-    message.channel.sendMessage(message.author + ", cela fait exactement " + body)
+    try {
+        console.log(matching);
+        //Consider remaining text as calculation
+        var body = math.eval(matching.regexResult[1]);
+        //Prompt Result mentionning the request's author
+        message.channel.sendMessage(message.author + ", cela fait exactement " + body);
+    }
+
+    catch (err) {
+        message.channel.sendMessage("Désolé " + message.author + ", je n'ai pas compris");
+    }
 
 }
