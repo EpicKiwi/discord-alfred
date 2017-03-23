@@ -1,4 +1,11 @@
 const settings = require("./settings")
+const moduleLoader = require("./moduleLoader")
+const Alfred = require("./Alfred")
 
 console.info("Loading settings")
 settings.load()
+console.log("Loading modules")
+const modules = moduleLoader.load()
+console.log("Starting bot")
+const bot = new Alfred(modules)
+bot.login()

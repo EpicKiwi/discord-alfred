@@ -2,6 +2,5 @@
 	"token": "YourDiscordAppToken",
 	"onlyChannel": true,
 	"channel": "ask-alfred",
-	"moduleDir": "./modules",
 	"onlyMention": true
 }
