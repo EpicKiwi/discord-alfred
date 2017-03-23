@@ -11,9 +11,9 @@ module.exports = class ModuleHello extends AlfredModule {
 		this.name = "Météo"
 		this.help = [{example:"Quel temps fait il ?",description:"Je vous donne le temps qu'il fait"}]
 
-		this.start([/quel temps fait[- ]il ?\??$/i],(matching,bot)=>this.begin(matching,bot))
+		this.start([/quel temps fait[- ]il [àa]?u? ?([^?]+) ?\??/i],(matching,bot)=>this.sendWeather(matching,bot))
+		this.start([/quel temps fait[- ]il ?\??/i],(matching,bot)=>this.begin(matching,bot))
 		this.state([/[àa]?u? ?(.+)/i],(matching,bot)=>this.sendWeather(matching,bot))
-		this.start([/quel temps fait[- ]il [àa]?u? ?([^?]+) ?\??$/i],(matching,bot)=>this.sendWeather(matching,bot))
 	}
 
 	init(bot){
@@ -45,7 +45,7 @@ module.exports = class ModuleHello extends AlfredModule {
 	}
 
 	getWeatherState(code){
-		if(code >= 200 && code <= 299){
+		if(code >= 200 && code <= 299){ 
 			return "de l'orage"
 		} else if(code >= 300 && code <= 399){
 			return "une petite bruine"
