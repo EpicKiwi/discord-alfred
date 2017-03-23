@@ -38,3 +38,5 @@ jspm_packages
 
 #Modules config files
 modules/jokes/users-jokes.json
+
+settings.json

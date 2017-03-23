@@ -2,7 +2,7 @@
   "name": "discord-alfred",
   "version": "1.0.0",
   "description": "Un bot discord",
-  "main": "bot.js",
+  "main": "src/bot.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/EpicKiwi/discord-alfred.git"
@@ -15,7 +15,6 @@
   "homepage": "https://github.com/EpicKiwi/discord-alfred#readme",
   "dependencies": {
     "discord.js": "^11.0.0",
-    "natural": "^0.5.0",
-    "request": "^2.79.0"
+    "fs-extra": "^2.1.2"
   }
 }
