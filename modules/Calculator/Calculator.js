@@ -5,7 +5,6 @@ exports.name = "➕ Calculator"
 
 exports.regexes = [
     /combien font\s?\:?(.*)?\??/ig,
-
     /resoud ?:? ?(.+)(?: ?\?)?/gi,
     /calcule ?:? ?(.+)(?: ?\?)?/gi,
     /[çc]a fait combien ?:? ?(.+)(?: ?\?)?/gi
@@ -26,7 +25,7 @@ exports.onMessage = (message, matching) => {
     }
 
     catch (err) {
-        message.channel.sendMessage("Désolé " + message.author + ", je n'ai pas compris");
+        message.channel.sendMessage("Désolé " + message.author + ", ton équation n'est pas valide.");
     }
 
 }
