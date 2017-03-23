@@ -1,5 +1,6 @@
 {
 	"token": "YourDiscordAppToken",
+	"owmApiKey": "YourOpenWeatherMapApiKey",
 	"onlyChannel": true,
 	"channel": "ask-alfred",
 	"onlyMention": true

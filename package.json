@@ -15,6 +15,7 @@
   "homepage": "https://github.com/EpicKiwi/discord-alfred#readme",
   "dependencies": {
     "discord.js": "^11.0.0",
-    "fs-extra": "^2.1.2"
+    "fs-extra": "^2.1.2",
+    "request": "^2.81.0"
   }
 }
