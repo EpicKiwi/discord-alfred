@@ -22,7 +22,7 @@
     <Content Include="README.md" />
     <Compile Include="bot.js" />
     <Compile Include="matchingdata.js" />
-    <Compile Include="modules\Calculator\Calculator.js" />
+    <Compile Include="modules\calculator\calculator.js" />
     <Compile Include="settings.js" />
     <Compile Include="base-modules\RandomStringModule.js" />
     <Compile Include="base-modules\StringModule.js" />
@@ -54,13 +54,15 @@
     <Folder Include="modules\hello" />
     <Folder Include="modules\help" />
     <Folder Include="modules\jokes" />
-    <Folder Include="modules\Calculator\" />
+    <Folder Include="modules\calculator\" />
     <Folder Include="modules\notfound" />
     <Folder Include="typings\" />
     <Folder Include="typings\globals\" />
+    <Folder Include="typings\globals\mathjs\" />
     <Folder Include="typings\globals\node\" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="typings\globals\mathjs\index.d.ts" />
     <TypeScriptCompile Include="typings\globals\node\index.d.ts" />
     <TypeScriptCompile Include="typings\index.d.ts" />
   </ItemGroup>
