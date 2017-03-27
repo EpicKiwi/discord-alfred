@@ -9,7 +9,8 @@ module.exports = class ModuleHello extends AlfredModule {
 		
 		this.icon = "⛅" //Un emoji
 		this.name = "Météo"
-		this.help = [{example:"Quel temps fait il ?",description:"Je vous donne le temps qu'il fait"}]
+		this.help = [{example:"Quel temps fait il a lyon ?"},
+		{example:"Quel temps fait il ?",description:"Je vous donne le temps qu'il fait"}]
 
 		this.start([/quel temps fait[- ]il [àa]?u? ?([^?]+) ?\??/i],(matching,bot)=>this.sendWeather(matching,bot))
 		this.start([/quel temps fait[- ]il ?\??/i],(matching,bot)=>this.begin(matching,bot))
@@ -28,7 +29,7 @@ module.exports = class ModuleHello extends AlfredModule {
 	sendWeather(matching,bot){
 		var timeout = setTimeout(()=>{
 			matching.reply("Veuillez patienter quelques instants... je cherche...")
-		},200)
+		},500)
 		var city = matching.case.regexResult[1]
 		this.getWeather(city,(err,result)=>{
 			clearTimeout(timeout)
