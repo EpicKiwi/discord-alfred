@@ -22,7 +22,7 @@ module.exports = class ModuleHello extends AlfredModule {
 
 	init(bot){
 		super.init(bot)
-		console.log("Hello module initialized")
+		console.log("Cat module initialized")
 	}
 
 	showCat(matching,bot){
