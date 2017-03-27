@@ -28,7 +28,7 @@ module.exports = class ModuleHello extends AlfredModule {
 
 	sendWeather(matching,bot){
 		var timeout = setTimeout(()=>{
-			matching.reply("Veuillez patienter quelques instants... je cherche...")
+			matching.reply("Veuillez patienter quelques instants...")
 		},500)
 		var city = matching.case.regexResult[1]
 		this.getWeather(city,(err,result)=>{
