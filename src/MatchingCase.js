@@ -11,6 +11,7 @@ module.exports = class MatchingCase{
 		for(let i = 0; i<this.regexes.length; i++){
 			let regex = this.regexes[i]
 			var regResult = regex.exec(matchingMessage.evaluatedMessage)
+			console.log(`Evaluates ${matchingMessage.evaluatedMessage} ${regex} ${regResult} `)
 			if(regResult){
 				this.regex = regex
 				this.regexResult = regResult

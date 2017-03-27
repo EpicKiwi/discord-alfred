@@ -29,6 +29,7 @@ module.exports = class ModuleHello extends AlfredModule {
 		var timeout = setTimeout(()=>{
 			matching.reply("Veuillez patienter quelques instants...")
 		},500)
+		matching.conversation.end()
 		request("http://random.cat/meow",(err,response,body) => {
 			clearTimeout(timeout)
 			if(err){
