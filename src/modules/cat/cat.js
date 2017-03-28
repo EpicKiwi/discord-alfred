@@ -33,11 +33,11 @@ module.exports = class ModuleHello extends AlfredModule {
 		request("http://random.cat/meow",(err,response,body) => {
 			clearTimeout(timeout)
 			if(err){
-				matching.reply(" Je n'ai pas pu récupèrer l'image de chat :'(")
+				matching.reply("Je n'ai pas pu récupèrer l'image de chat :'(")
 				return
 			}
 			var body = JSON.parse(response.body)
-			matching.reply(body.file)
+			matching.replyFile(body.file)
 		});
 	}
 }

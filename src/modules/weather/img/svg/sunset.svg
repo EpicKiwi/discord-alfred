@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="4cm"
+   height="4cm"
+   viewBox="0 0 400 400"
+   version="1.1"
+   id="svg4"
+   sodipodi:docname="sunset.svg"
+   inkscape:version="0.92.1 r">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="697"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="0.27595579"
+     inkscape:cx="-707.00764"
+     inkscape:cy="-72.303995"
+     inkscape:window-x="0"
+     inkscape:window-y="29"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg4" />
+  <path
+     d="M0 681q0 44 32 72q28 28 73 28h246q43 0 71 -28.5t28 -71.5q0 -45 -28.5 -75.5t-70.5 -30.5h-246q-43 0 -74 31.5t-31 74.5zM351 1519q0 45 27 72q32 32 75 32q46 0 72 -32l173 -174q74 -70 0 -144q-30 -30 -69 -30q-35 0 -72 30l-179 174q-27 29 -27 72zM561 103 q0 42 32 74q29 29 72 29h343q17 0 30 -8l251 -237l255 237q11 8 31 8h352q43 0 73.5 -30t30.5 -73t-30.5 -73.5t-73.5 -30.5h-286l-335 -303q-20 -14 -35 0l-329 303h-277q-43 0 -73.5 30.5t-30.5 73.5zM661 681q0 -159 62 -280q9 -17 29 -17h199q13 0 16 8t-8 19 q-95 119 -95 270q0 176 126 299.5t304 123.5q176 0 301.5 -124t125.5 -299q0 -151 -95 -270q-11 -11 -8 -19t16 -8h201q21 0 26 17q66 125 66 280q0 127 -50.5 244.5t-135.5 202.5t-202 135.5t-245 50.5t-245 -50.5t-202 -135.5t-135.5 -202.5t-50.5 -244.5zM1190 1621v248 q0 43 30.5 73.5t73.5 30.5t73.5 -30.5t30.5 -73.5v-248q0 -43 -30.5 -73.5t-73.5 -30.5t-73.5 30.5t-30.5 73.5zM1859 1345q0 45 28 72l174 174q26 32 72 32q44 0 73 -30.5t29 -73.5q0 -45 -27 -72l-177 -174q-37 -30 -74 -30q-42 0 -70 29.5t-28 72.5zM2135 681 q0 43 28 71.5t71 28.5h247q43 0 73.5 -29t30.5 -71q0 -43 -30.5 -74.5t-73.5 -31.5h-247q-42 0 -70.5 30.5t-28.5 75.5z"
+     id="path2"
+     style="fill:#c3cee0;fill-opacity:1;opacity:0.98" />
+</svg>

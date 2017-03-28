@@ -13,7 +13,9 @@ module.exports = class ModuleHello extends AlfredModule {
 				{example:"Au revoir",description:"Quand vous partez"},
 				{example:"Comment t'améliorer",description:"Je vous donne les instructions pour me custommiser"}]
 
-		this.start([/salut/i,
+		this.start([/coucou/i,
+			/bonjour/i,
+			/salut/i,
 			/hey/i,
 			/hello/i,
 			/hi/i,

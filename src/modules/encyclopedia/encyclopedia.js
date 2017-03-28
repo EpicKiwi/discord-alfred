@@ -26,9 +26,10 @@ module.exports = class ModuleHello extends AlfredModule {
 	search(matching,bot){
 		matching.reply("Je cherche...")
 		this.searchOnWikipedia(matching,(result) => {
-			if(result)
+			if(result){
 				matching.reply(result)
-			else{
+				matching.conversation.end()
+			}else{
 				this.searchOnDuckduckgo(matching,result => {
 					if(result)
 						matching.reply(result)

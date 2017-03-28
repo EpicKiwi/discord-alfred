@@ -13,4 +13,15 @@ module.exports = class MatchingMessage {
 		this.conversation.channel.send(rawMessage)
 	}
 
+	replyFile(file,rawMessage){
+		if(this.conversation.channel.type == "text"){
+			if(rawMessage){
+				rawMessage = this.conversation.user+" "+rawMessage
+			} else {
+				rawMessage = this.conversation.user
+			}
+		}
+		this.conversation.channel.sendFile(file,null,rawMessage)
+	}
+
 }
