@@ -65,7 +65,7 @@ module.exports = function(owmObject){
 	ctx.fillText(owmObject.name,15,15)
 	//Dessin du temps
 	ctx.font = "15pt Verdana"
-	ctx.fillText("Actuellement",30+titleSize.width,33)
+	ctx.fillText(moment().format("ddd D MMMM H[h]"),30+titleSize.width,33)
 	//Dessin de l'image du temps
 	if(weatherImg){
 		ctx.drawImage(weatherImg,15,70,125,125)
@@ -76,7 +76,6 @@ module.exports = function(owmObject){
 	ctx.fillText(temperature+"°C",160,70)
 	//Affichage du temps
 	ctx.font = "20pt Verdana"
-	console.log(forecastText.fromId(owmObject.weather[0].id))
 	if(owmObject.weather[0] && owmObject.weather[0].id){
 		let weatherText = forecastText.fromId(owmObject.weather[0].id)
 		ctx.fillText(weatherText,160,125)
@@ -107,8 +106,6 @@ module.exports = function(owmObject){
 	let sunsetDate = moment.unix(owmObject.sys.sunset)
 	ctx.drawImage(sunsetImg,185,260,30,30)
 	ctx.fillText(sunsetDate.format("HH:mm"),230,263)
-
-	ctx.fillRect(15,300,30,30)
 	//Renvoie de l'image en buffer
 	return canvas.toBuffer()
 }
