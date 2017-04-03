@@ -40,7 +40,10 @@ module.exports = class ModuleHello extends AlfredModule {
 				}
 			}
 		}
-		matching.reply(`Voici ce sur quoi je peut vous aider :${help}\n`)
+        help += `\n\n⛔ **Quitter**\n`
+        help += `\n\t\tOublie ça`
+        help += `\n\t\tLaisse tomber\n\t\t\t *Quitter une conversation*`
+		matching.reply(`En quoi puis-je vous aider ?${help}\n`)
 		matching.conversation.end()
 	}
 }

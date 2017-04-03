@@ -37,6 +37,8 @@ jspm_packages
 .node_repl_history
 
 #Modules config files
-modules/jokes/users-jokes.json
+src/modules/jokes/users-jokes.json
 
 settings.json
+
+.idea

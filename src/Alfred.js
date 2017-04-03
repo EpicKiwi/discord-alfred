@@ -80,7 +80,7 @@ module.exports = class Alfred{
 
 	executeCase(matchingMess,conversation,theCase){
 		//Ajoute le message a la conversation
-		conversation.addMatchingMessage(matchingMess)
+		conversation.addMessage(matchingMess)
 		//Ajoute le module au matching
 		matchingMess.module = conversation.module
 		//Ajoute le cas de matching a l'objet de matching

@@ -31,7 +31,7 @@ module.exports = class ModuleHello extends AlfredModule {
 		        //Consider remaining text as calculation
 		        var body = math.eval(matching.case.regexResult[1]);
 		        //Prompt Result mentionning the request's author
-		        matching.reply(`j'ai calculé ${matching.case.regexResult[1]} = ${body}`);
+		        matching.reply(`j'ai calculé \`${matching.case.regexResult[1]} = ${body}\``);
 		        if(body == Infinity){
 		        	matching.reply("Vous avez surement fait une division par zéro...");
 		        }

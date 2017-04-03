@@ -1,3 +1,5 @@
+const AlfredMessage = require("./AlfredMessage")
+
 module.exports = class Conversation {
 	
 	constructor(mod,user,channel){
@@ -8,12 +10,42 @@ module.exports = class Conversation {
 		this.matchings = []
 	}
 
-	addMatchingMessage(matching) {
-		this.matchings.push(matching)
+	addMessage(message) {
+		this.matchings.push(message)
 	}
 
 	end(){
 		this.active = false
 	}
+
+    reply(rawMessage){
+        if(this.channel.type == "text"){
+            rawMessage = this.user+" "+rawMessage
+        }
+        this.channel.send(rawMessage).then(message => {
+            let newMessage = new AlfredMessage(message)
+            newMessage.conversation = this
+            newMessage.module = this.module
+            this.addMessage(newMessage)
+            console.log(this)
+        })
+    }
+
+    replyFile(file,rawMessage){
+        if(this.channel.type == "text"){
+            if(rawMessage){
+                rawMessage = this.user+" "+rawMessage
+            } else {
+                rawMessage = this.user
+            }
+        }
+        this.channel.sendFile(file,null,rawMessage).then(message => {
+            let newMessage = new AlfredMessage(message)
+            newMessage.conversation = this
+            newMessage.module = this.module
+            this.addMessage(newMessage)
+            console.log(this)
+        })
+    }
 
 }
