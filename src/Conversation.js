@@ -27,7 +27,6 @@ module.exports = class Conversation {
             newMessage.conversation = this
             newMessage.module = this.module
             this.addMessage(newMessage)
-            console.log(this)
         })
     }
 
@@ -44,7 +43,6 @@ module.exports = class Conversation {
             newMessage.conversation = this
             newMessage.module = this.module
             this.addMessage(newMessage)
-            console.log(this)
         })
     }
 
