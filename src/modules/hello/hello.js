@@ -32,6 +32,12 @@ module.exports = class ModuleHello extends AlfredModule {
 				"🎶 Is it me you're loooking fooor 🎵",
 				"🎶 Le soleil brille brille brille 🎵"]))
 
+        this.start([/tu me pousses? [àa] bout/i],moduleUtils.oneStringResponseEnd(
+        	["Aboutdabi ?",
+				"Abusimbel ?",
+				"Aboubacar ?",
+				"Aboutissement ?"]))
+
 		this.start([/au revoir/i,
 			/bye/i,
 			/a plus/i,
