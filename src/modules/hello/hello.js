@@ -13,15 +13,24 @@ module.exports = class ModuleHello extends AlfredModule {
 				{example:"Au revoir",description:"Quand vous partez"},
 				{example:"Comment t'améliorer",description:"Je vous donne les instructions pour me custommiser"}]
 
+        this.start([/ho hi/i],moduleUtils.oneStringResponseEnd(
+            ["Oh hi marc ! 👋",
+                "met your mother ?"]))
+
 		this.start([/coucou/i,
 			/bonjour/i,
 			/salut/i,
 			/hey/i,
-			/hello/i,
 			/hi/i,
 			/wesh/i,
 			/salutations?/i],
 			moduleUtils.stringResponseEnd("Bonjour"))
+
+        this.start([/hello/i],moduleUtils.oneStringResponseEnd(
+        	["🎶 From the other siiiiide 🎵",
+				"🎵 Darkness my old friend 🎶",
+				"🎶 Is it me you're loooking fooor 🎵",
+				"🎶 Le soleil brille brille brille 🎵"]))
 
 		this.start([/au revoir/i,
 			/bye/i,

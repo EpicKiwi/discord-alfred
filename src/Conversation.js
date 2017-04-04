@@ -27,7 +27,7 @@ module.exports = class Conversation {
             newMessage.conversation = this
             newMessage.module = this.module
             this.addMessage(newMessage)
-            this.channel.stopTyping()
+            this.channel.stopTyping(true)
             if(callback)
                 callback(newMessage)
         })
@@ -46,7 +46,7 @@ module.exports = class Conversation {
             newMessage.conversation = this
             newMessage.module = this.module
             this.addMessage(newMessage)
-            this.channel.stopTyping()
+            this.channel.stopTyping(true)
             if(callback)
                 callback(newMessage)
         })
