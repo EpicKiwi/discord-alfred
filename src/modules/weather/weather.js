@@ -28,21 +28,16 @@ module.exports = class ModuleHello extends AlfredModule {
 	}
 
 	sendWeather(matching,bot){
-		var timeout = setTimeout(()=>{
-			matching.reply("Veuillez patienter quelques instants...")
-		},500)
 		var city = matching.case.regexResult[1]
 		this.getWeather(city,(err,result)=>{
 			if(!err){
 				if(result.cod == "404"){
 					matching.reply(`Je n'ai pas trouvé la ville ${city}`)
-					clearTimeout(timeout)
 					return
 				} 
 				let temp = Math.round((result.main.temp-273.15)*10)/10
 				var replyMess = `A ${result.name}, il y a ${this.getWeatherState(result.weather[0].id)} et il y fait ${temp}°C`
 				let forecastImage = forecastGenerator(result)
-				clearTimeout(timeout)
 				matching.replyFile(forecastImage,replyMess)
 			}
 			matching.conversation.end()

@@ -40,6 +40,8 @@ module.exports = class Alfred{
 		if(message.channel.type != 'text' && message.channel.type != 'dm')
 			return
 		console.log(`${message.author.username} : ${message.content}`)
+		//Envoie un signal de typing
+        message.channel.startTyping()
 		//Formate le message pour l'analyse
 		let matchMessage = message.content.replace(this.client.user.toString(),"").trim()
 		//Crée un objet de matching avec le message

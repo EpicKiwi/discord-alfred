@@ -18,7 +18,7 @@ module.exports = class Conversation {
 		this.active = false
 	}
 
-    reply(rawMessage){
+    reply(rawMessage,callback){
         if(this.channel.type == "text"){
             rawMessage = this.user+" "+rawMessage
         }
@@ -27,10 +27,13 @@ module.exports = class Conversation {
             newMessage.conversation = this
             newMessage.module = this.module
             this.addMessage(newMessage)
+            this.channel.stopTyping()
+            if(callback)
+                callback(newMessage)
         })
     }
 
-    replyFile(file,rawMessage){
+    replyFile(file,rawMessage,callback){
         if(this.channel.type == "text"){
             if(rawMessage){
                 rawMessage = this.user+" "+rawMessage
@@ -43,6 +46,9 @@ module.exports = class Conversation {
             newMessage.conversation = this
             newMessage.module = this.module
             this.addMessage(newMessage)
+            this.channel.stopTyping()
+            if(callback)
+                callback(newMessage)
         })
     }
 
