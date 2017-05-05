@@ -3,6 +3,7 @@ API_FOLDER="doc/api"
 BASE_DOC_FOLDER="."
 SOURCE_FOLDER="src"
 GITHUB_REPOSITORY="https://github.com/EpicKiwi/discord-alfred"
+APIDOC_HOME_FILENAME="README.md"
 
 DOC_FOLDER=${BASE_DOC_FOLDER}/${API_FOLDER}
 LAST_WORKING_DIRECTORY=$(pwd)
@@ -41,8 +42,8 @@ do
     fi
 done
 
-echo "$apihomecontent" > "$DOC_FOLDER/apidoc-home.md"
-echo "Généré $DOC_FOLDER/apidoc-home.md"
+echo "$apihomecontent" > "$DOC_FOLDER/${APIDOC_HOME_FILENAME}.md"
+echo "Généré $DOC_FOLDER/${APIDOC_HOME_FILENAME}.md"
 
 cd "$DOC_FOLDER"
 
