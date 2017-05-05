@@ -36,7 +36,7 @@ do
             mkdir -p "$docfolder"
         fi
         echo "$doccontent" > "$docfile"
-        apihomecontent="${apihomecontent}* [${file}](${docfile})
+        apihomecontent="${apihomecontent}* [${file}](/${docfile})
 "
         echo "Généré $docfile"
     fi
