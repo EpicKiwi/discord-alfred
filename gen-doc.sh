@@ -42,8 +42,8 @@ do
     fi
 done
 
-echo "$apihomecontent" > "$DOC_FOLDER/${APIDOC_HOME_FILENAME}.md"
-echo "Généré $DOC_FOLDER/${APIDOC_HOME_FILENAME}.md"
+echo "$apihomecontent" > "$DOC_FOLDER/${APIDOC_HOME_FILENAME}"
+echo "Généré $DOC_FOLDER/${APIDOC_HOME_FILENAME}"
 
 cd "$DOC_FOLDER"
 
