@@ -20,5 +20,8 @@
     "mathjs": "^3.10.1",
     "moment": "^2.18.1",
     "request": "^2.81.0"
+  },
+  "scripts" : {
+    "doc": "find src -type f -exec jsdoc2md --no-cache -r table --separators --name-format -f src/*.js src/*/*.js > Api.md \"{}\""
   }
 }

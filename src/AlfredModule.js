@@ -10,7 +10,7 @@ const MatchingCase = require("./MatchingCase")
  * Un module du bot
  * @type {AlfredModule}
  */
-module.exports = class AlfredModule{
+class AlfredModule{
 
     /**
 	 * Crée le module de bot avec les options par défaut
@@ -123,3 +123,5 @@ module.exports = class AlfredModule{
 		matching.conversation.end()
 	}
 }
+
+module.exports = AlfredModule;
