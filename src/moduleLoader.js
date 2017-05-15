@@ -2,10 +2,24 @@ const path = require("path")
 const AlfredModule = require("./AlfredModule")
 const fs = require("fs-extra")
 
+/**
+ * Module en charge du chargement des modules du bot
+ * @module moduleLoader
+ */
+
 module.exports = {
-	
+
+    /**
+     * Le chemin absolu vers le dossier contenant les modules
+     * du bot
+     */
 	modulesDir: path.resolve(__dirname,"./modules"),
 
+    /**
+     * Charge les modules depuis le dossier spécifié puis
+     * renvoie le tableau de tout les modules chargés
+     * @returns {AlfredModule[]} Les modules chargés
+     */
 	load(){
 		let modules = []
 		var modulesDirs = fs.readdirSync(this.modulesDir)

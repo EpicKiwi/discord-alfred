@@ -42,3 +42,6 @@ src/modules/jokes/users-jokes.json
 settings.json
 
 .idea
+
+dmd
+jsdoc-api
