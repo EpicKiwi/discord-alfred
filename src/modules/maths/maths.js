@@ -12,7 +12,7 @@ module.exports = class ModuleHello extends AlfredModule {
 		this.name = "Calculator"
 		this.help = [{example:"Combien font : 3+5/6"},
 				{example:"calcule 9+9*18"},
-				{example: "Ça fait combien 0+0 ?", description: "Je vous envoie une image de chat"}]
+				{example: "Ça fait combien 0+0 ?", description: "Je calcule le tout"}]
 
 		this.start([/combien font\s?\:?([^ ]*)?\??/i,
 		    /resoud ?:? ?([^ ]+)(?: ?\?)?/i,

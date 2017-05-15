@@ -14,6 +14,7 @@
   },
   "homepage": "https://github.com/EpicKiwi/discord-alfred#readme",
   "dependencies": {
+    "allocine-api": "^0.1.9",
     "canvas": "^1.6.5",
     "discord.js": "^11.0.0",
     "fs-extra": "^2.1.2",
